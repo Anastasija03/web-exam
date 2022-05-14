@@ -1,6 +1,7 @@
 export const state = () => ({
     pagesData: {},
     sales: [],
+    fields: null
 })
 export const mutations = {
     addPageData(state, payload) {
@@ -8,6 +9,9 @@ export const mutations = {
     },
     setSales(state, payload) {
         state.sales = payload
+    },
+    setFields(state, payload) {
+        state.fields = payload
     }
 }
 
@@ -23,10 +27,19 @@ export const actions = {
             leftWidget
         })
     },
-
     async getSales({commit}) {
         const sales = await this.$axios.$get("/api/delivery/sales")
 
         commit("setSales", sales)
+    },
+
+    async getFields({commit}) {
+        const data = await this.$axios.$get("/api/delivery/sales/form")
+
+        commit("setFields", data.fields)
+    },
+
+    addSalesItem(_, data) {   
+      return this.$axios.$post("/api/delivery/sales", data)
     }
 }

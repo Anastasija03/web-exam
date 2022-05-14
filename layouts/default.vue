@@ -76,12 +76,13 @@ export default {
     ...mapState(["pagesData"])
   },
 
-  created() {
+  created() { // Берем все данные для страниц при запуске
     this.getPagesData();
     this.getSales();
+    this.getFields();
   },
   methods: {
-    ...mapActions(["getPagesData", "getSales"])
+    ...mapActions(["getPagesData", "getSales", "getFields"])
   },
 };
 </script>
