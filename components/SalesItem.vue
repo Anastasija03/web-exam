@@ -10,11 +10,11 @@
         <span>В: {{ salesData.destination_city }}</span>
       </div>
       <div class="salesItem__text-mid">
-        <div style="text-align: right">{{ salesData.type }}</div>
-        <div>Адрес отправителя: {{ salesData.departure_address }}</div>
-        <div>Адрес получателя: {{ salesData.destination_address }}</div>
-        <div>Вес (кг): {{ salesData.weight }}</div>
-        <div>Объем (м3): {{ salesData.volume }}</div>
+        <div><span>Способ перевозки:</span> <span>{{ salesData.type }}</span></div>
+        <div><span>Адрес отправителя:</span> <span>{{ salesData.departure_address }}</span></div>
+        <div><span>Адрес получателя:</span> <span>{{ salesData.destination_address }}</span></div>
+        <div><span>Вес (кг):</span> <span>{{ salesData.weight }}</span></div>
+        <div><span>Объем (м3):</span> <span> {{ salesData.volume }}</span></div>
       </div>
     </v-card>
   </v-hover>
@@ -43,5 +43,16 @@ export default {
 .salesItem__text-top {
   display: flex;
   justify-content: space-between;
+}
+
+.salesItem__text-mid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
 }
 </style>
