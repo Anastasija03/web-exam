@@ -54,18 +54,15 @@ export default {
       fixed: false,
       items: [
         {
-          icon: "mdi-apps",
           title: "Главная",
           to: "/",
         },
         {
-          icon: "mdi-apps",
           title: "О нас",
           to: "/about",
         },
         {
-          icon: "mdi-apps",
-          title: "Доставки",
+          title: "Список доставок",
           to: "/sales"
         }
       ],
@@ -81,9 +78,10 @@ export default {
 
   created() {
     this.getPagesData();
+    this.getSales();
   },
   methods: {
-    ...mapActions(["getPagesData"])
+    ...mapActions(["getPagesData", "getSales"])
   },
 };
 </script>

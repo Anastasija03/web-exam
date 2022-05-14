@@ -1,10 +1,14 @@
 export const state = () => ({
     pagesData: {},
+    sales: [],
 })
 export const mutations = {
     addPageData(state, payload) {
         state.pagesData = {...state.pagesData, ...payload}
     },
+    setSales(state, payload) {
+        state.sales = payload
+    }
 }
 
 export const actions = {
@@ -19,4 +23,10 @@ export const actions = {
             leftWidget
         })
     },
+
+    async getSales({commit}) {
+        const sales = await this.$axios.$get("/api/delivery/sales")
+
+        commit("setSales", sales)
+    }
 }
